@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
+	viper.SetConfigType("yaml") // TEM Q TER ESSA BAGAÇA DE CONFIG TYPE!!!!!
+
 	viper.SetConfigName("config") // name of config file (without extension)
 	viper.AddConfigPath(".")      // optionally look for config in the working directory
-	viper.SetConfigType("yaml")
-	err := viper.ReadInConfig() // Find and read the config file
-	if err != nil {             // Handle errors reading the config file
+	err := viper.ReadInConfig()   // Find and read the config file
+	if err != nil {               // Handle errors reading the config file
 		panic(fmt.Errorf("Fatal error config file: %s", err))
 	}
 
